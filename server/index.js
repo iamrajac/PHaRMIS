@@ -1325,7 +1325,7 @@ async function getExistingInsight(userId, date) {
     throw new Error('Date must be in YYYY-MM-DD format');
   }
   const [rows] = await pool.query(
-    'SELECT * FROM health_insights WHERE user_id = ? AND DATE(generated_date) = ? LIMIT 1',
+    'SELECT * FROM health_insights WHERE user_id = ? AND DATE(generated_at) = ? LIMIT 1',
     [userId, date]
   );
   return rows.length > 0 ? rows[0] : null;
