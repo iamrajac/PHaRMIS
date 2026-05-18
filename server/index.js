@@ -863,7 +863,7 @@ app.post('/api/lifestyle', authenticateToken, async (req, res) => {
     
     const [result] = await pool.query(
       `INSERT INTO lifestyle_logs 
-       (user_id, date, activity_type, activity_name, duration, intensity, quantity, notes) 
+       (user_id, date, type, activity, duration, intensity, quantity, notes) 
        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
       [userId, date, activity_type, activity_name, duration, intensity, quantity, notes]
     );
