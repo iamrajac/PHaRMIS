@@ -327,7 +327,7 @@ app.get('/api/profile', authenticateToken, async (req, res) => {
     );
     // Get conditions
     const [conditions] = await pool.query(
-      'SELECT name FROM medical_conditions WHERE user_id = ?',
+      'SELECT name FROM conditions WHERE user_id = ?',
       [userId]
     );
     // Get medications
