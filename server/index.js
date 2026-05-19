@@ -817,7 +817,7 @@ app.get('/api/lifestyle', authenticateToken, async (req, res) => {
     const userId = req.user.id;
     const { type, startDate, endDate } = req.query;
     
-    let query = 'SELECT * FROM lifestyle_logs WHERE user_id = ?';
+    let query = 'SELECT *, type AS activity_type, activity AS activity_name FROM lifestyle_logs WHERE user_id = ?';
     let params = [userId];
     
     if (type) {
